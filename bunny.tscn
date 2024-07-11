@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0mrc805opqy8"]
+
+[ext_resource type="Script" path="res://bunny.gd" id="1_p4xqd"]
+[ext_resource type="Texture2D" uid="uid://cgnnuwb2r7fle" path="res://Pixel Adventure 2/Enemies/Bunny/Idle (34x44).png" id="1_soicu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqaq6"]
+atlas = ExtResource("1_soicu")
+region = Rect2(0, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe4vm"]
+atlas = ExtResource("1_soicu")
+region = Rect2(34, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0qpd"]
+atlas = ExtResource("1_soicu")
+region = Rect2(68, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6qd7"]
+atlas = ExtResource("1_soicu")
+region = Rect2(102, 0, 34, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whfdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqaq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe4vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0qpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6qd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdpah"]
+radius = 12.6667
+
+[node name="bunny" type="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 3)
+script = ExtResource("1_p4xqd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_whfdu")
+autoplay = "default"
+frame_progress = 0.944063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.66667, 8.4)
+shape = SubResource("CapsuleShape2D_fdpah")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

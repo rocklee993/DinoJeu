@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://b70u0b4va21c5"]
+
+[ext_resource type="Texture2D" uid="uid://rslhxc2dcm1v" path="res://dinoCharactersVersion1.1/sheets/DinoSprites - doux.png" id="1_0006n"]
+[ext_resource type="Script" path="res://player.gd" id="1_b4jum"]
+[ext_resource type="AudioStream" uid="uid://bwlb4pxvis88u" path="res://maro-jump-sound-effect_1.mp3" id="3_mbbau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n3kp"]
+size = Vector2(11, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdb7i"]
+atlas = ExtResource("1_0006n")
+region = Rect2(408, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbob8"]
+atlas = ExtResource("1_0006n")
+region = Rect2(432, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sc3s"]
+atlas = ExtResource("1_0006n")
+region = Rect2(456, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0m6c"]
+atlas = ExtResource("1_0006n")
+region = Rect2(480, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mepih"]
+atlas = ExtResource("1_0006n")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wve5o"]
+atlas = ExtResource("1_0006n")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j6f7"]
+atlas = ExtResource("1_0006n")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myvtu"]
+atlas = ExtResource("1_0006n")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0ikf"]
+atlas = ExtResource("1_0006n")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1eek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdb7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbob8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sc3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0m6c")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mepih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wve5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j6f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myvtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0ikf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Players"]]
+scale = Vector2(7, 7)
+script = ExtResource("1_b4jum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_2n3kp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_l1eek")
+animation = &"crouch"
+frame_progress = 0.337172
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mbbau")
+volume_db = -14.757

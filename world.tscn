@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://chqsuobre62fg"]
+
+[ext_resource type="PackedScene" uid="uid://drqssft18yyn7" path="res://bg.tscn" id="1_1y8xf"]
+[ext_resource type="Script" path="res://world.gd" id="1_gmbhh"]
+[ext_resource type="PackedScene" uid="uid://b70u0b4va21c5" path="res://player.tscn" id="2_2d3r8"]
+[ext_resource type="PackedScene" uid="uid://bxwe2h113gbx7" path="res://ground.tscn" id="3_03qen"]
+[ext_resource type="PackedScene" uid="uid://dglc1wc2r0kvp" path="res://hud.tscn" id="7_l8afg"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_gmbhh")
+
+[node name="bg" parent="." instance=ExtResource("1_1y8xf")]
+
+[node name="Player" parent="." instance=ExtResource("2_2d3r8")]
+z_index = 1
+position = Vector2(131, 461)
+
+[node name="HUD" parent="." instance=ExtResource("7_l8afg")]
+
+[node name="ground" parent="." instance=ExtResource("3_03qen")]
+position = Vector2(0, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 287)
+scale = Vector2(2.66666, 2.66666)
+offset = Vector2(0, 40)
+limit_left = -9999915

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxwe2h113gbx7"]
+
+[ext_resource type="Texture2D" uid="uid://ge34h68kid8k" path="res://jng/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_ghowx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdhvu"]
+size = Vector2(2914.53, 65)
+
+[node name="ground" type="StaticBody2D"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(487.152, 612)
+scale = Vector2(6.08559, 2.24359)
+texture = ExtResource("1_ghowx")
+region_enabled = true
+region_rect = Rect2(16, 224, 160, 32)
+region_filter_clip_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1461, 612)
+scale = Vector2(6.08559, 2.24359)
+texture = ExtResource("1_ghowx")
+region_enabled = true
+region_rect = Rect2(16, 224, 160, 32)
+region_filter_clip_enabled = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(2429, 612)
+scale = Vector2(6.08559, 2.24359)
+texture = ExtResource("1_ghowx")
+region_enabled = true
+region_rect = Rect2(16, 224, 160, 32)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1457.73, 613)
+shape = SubResource("RectangleShape2D_mdhvu")

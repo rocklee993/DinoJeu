@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://besjk5c3j1piu"]
+
+[ext_resource type="Script" path="res://bunny.gd" id="1_l2w7h"]
+[ext_resource type="Texture2D" uid="uid://nafdn83lwndu" path="res://Pixel Adventure 2/Enemies/AngryPig/Idle (36x30).png" id="2_ih8oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7rwp"]
+atlas = ExtResource("2_ih8oy")
+region = Rect2(0, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c4ad"]
+atlas = ExtResource("2_ih8oy")
+region = Rect2(36, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fuyh"]
+atlas = ExtResource("2_ih8oy")
+region = Rect2(72, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji67a"]
+atlas = ExtResource("2_ih8oy")
+region = Rect2(108, 0, 36, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6kmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7rwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c4ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fuyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji67a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdpah"]
+radius = 12.6667
+
+[node name="pig" type="Area2D"]
+texture_filter = 1
+scale = Vector2(5, 3)
+script = ExtResource("1_l2w7h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i6kmu")
+autoplay = "default"
+frame_progress = 0.964532
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 2)
+shape = SubResource("CapsuleShape2D_fdpah")

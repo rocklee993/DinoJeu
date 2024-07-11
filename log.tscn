@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6b2blfx0uvbu"]
+
+[ext_resource type="Texture2D" uid="uid://ck77c7a3hyxim" path="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="1_dobcu"]
+[ext_resource type="Script" path="res://log.gd" id="1_w3nb8"]
+
+[node name="log" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_w3nb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dobcu")
+region_enabled = true
+region_rect = Rect2(163, 335, 90, 49)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-45, 22, -42, 11, -41, 2, -36, -1, -36, -11, -31, -12, -30, -21, 21, -20, 26, -18, 26, -13, 31, -11, 33, -1, 39, 1, 38, 10, 43, 11, 44, 23)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
